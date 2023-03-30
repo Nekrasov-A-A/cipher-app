@@ -6,29 +6,25 @@ const aplhabetRu: string[] = "абвгдеёжзийклмнопрстуфхцч
 
 describe("ceasar cipher", () => {
   test("encode should work with eng alphabet", () => {
-    expect(CeasarCipher.encodeCeasar("Hello World", aplhabetEng, 3)).toBe(
+    expect(CeasarCipher.encode("Hello World", aplhabetEng, 3)).toBe(
       "Khoor Zruog"
     );
   });
   test("encode should work with ru alphabet", () => {
-    expect(CeasarCipher.encodeCeasar("Привет Мир", aplhabetRu, 3)).toBe(
-      "Тулезх Плу"
-    );
+    expect(CeasarCipher.encode("Привет Мир", aplhabetRu, 3)).toBe("Тулезх Плу");
   });
   test("encode should work with empty string", () => {
-    expect(CeasarCipher.encodeCeasar("", aplhabetRu, 3)).toBe("");
+    expect(CeasarCipher.encode("", aplhabetRu, 3)).toBe("");
   });
   test("decode should work with eng alphabet", () => {
-    expect(CeasarCipher.decodeCeasar("Khoor Zruog", aplhabetEng, 3)).toBe(
+    expect(CeasarCipher.decode("Khoor Zruog", aplhabetEng, 3)).toBe(
       "Hello World"
     );
   });
   test("decode should work with ru alphabet", () => {
-    expect(CeasarCipher.decodeCeasar("Тулезх Плу", aplhabetRu, 3)).toBe(
-      "Привет Мир"
-    );
+    expect(CeasarCipher.decode("Тулезх Плу", aplhabetRu, 3)).toBe("Привет Мир");
   });
   test("decode should work with empty string", () => {
-    expect(CeasarCipher.decodeCeasar("", aplhabetRu, 3)).toBe("");
+    expect(CeasarCipher.decode("", aplhabetRu, 3)).toBe("");
   });
 });

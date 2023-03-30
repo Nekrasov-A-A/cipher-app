@@ -7,36 +7,28 @@ const aplhabetRu: string[] = "абвгдеёжзийклмнопрстуфхцч
 describe("codeword cipher", () => {
   test("encode should work with eng alphabet", () => {
     expect(
-      CodewordCipher.encodeCodeword(
-        "Hello World",
-        aplhabetEng,
-        "wdwdsadsadwadsa"
-      )
+      CodewordCipher.encode("Hello World", aplhabetEng, "wdwdsadsadwadsa")
     ).toBe("Fbjjm Vmpja");
   });
   test("encode should work with ru alphabet", () => {
-    expect(
-      CodewordCipher.encodeCodeword("Привет Мир", aplhabetRu, "привет")
-    ).toBe("Мндитс Йдн");
+    expect(CodewordCipher.encode("Привет Мир", aplhabetRu, "привет")).toBe(
+      "Мндитс Йдн"
+    );
   });
   test("encode should work with empty string", () => {
-    expect(CodewordCipher.encodeCodeword("", aplhabetRu, "привет")).toBe("");
+    expect(CodewordCipher.encode("", aplhabetRu, "привет")).toBe("");
   });
   test("decode should work with eng alphabet", () => {
     expect(
-      CodewordCipher.decodeCodeword(
-        "Fbjjm Vmpja",
-        aplhabetEng,
-        "wdwdsadsadwadsa"
-      )
+      CodewordCipher.decode("Fbjjm Vmpja", aplhabetEng, "wdwdsadsadwadsa")
     ).toBe("Hello World");
   });
   test("decode should work with ru alphabet", () => {
-    expect(
-      CodewordCipher.decodeCodeword("Мндитс Йдн", aplhabetRu, "привет")
-    ).toBe("Привет Мир");
+    expect(CodewordCipher.decode("Мндитс Йдн", aplhabetRu, "привет")).toBe(
+      "Привет Мир"
+    );
   });
   test("decode should work with empty string", () => {
-    expect(CodewordCipher.decodeCodeword("", aplhabetRu, "привет")).toBe("");
+    expect(CodewordCipher.decode("", aplhabetRu, "привет")).toBe("");
   });
 });
