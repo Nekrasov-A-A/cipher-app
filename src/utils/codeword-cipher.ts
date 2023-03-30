@@ -1,8 +1,4 @@
-const encodeCodeword = (
-  text: string,
-  alphabet: string[],
-  codeword: string
-): string => {
+const encode = (text: string, alphabet: string[], codeword: string): string => {
   if (!text) return "";
   const uniqueLettersOfCodeword: string[] = [
     ...new Set(codeword.toLowerCase()),
@@ -20,11 +16,7 @@ const encodeCodeword = (
   });
 };
 
-const decodeCodeword = (
-  text: string,
-  alphabet: string[],
-  codeword: string
-): string => {
+const decode = (text: string, alphabet: string[], codeword: string): string => {
   if (!text) return "";
   const uniqueLettersOfCodeword: string[] = [
     ...new Set(codeword.toLowerCase()),
@@ -42,4 +34,4 @@ const decodeCodeword = (
   });
 };
 
-export { encodeCodeword, decodeCodeword };
+export { encode, decode };

@@ -1,8 +1,4 @@
-const encodeCeasar = (
-  text: string,
-  alphabet: string[],
-  shift: number
-): string => {
+const encode = (text: string, alphabet: string[], shift: number): string => {
   if (!text) return "";
   const shiftAlphabet = [...alphabet.slice(shift), ...alphabet.slice(0, shift)];
   return text.replace(/[a-z]|[а-я]/gi, (letter: string): string => {
@@ -15,11 +11,7 @@ const encodeCeasar = (
   });
 };
 
-const decodeCeasar = (
-  text: string,
-  alphabet: string[],
-  shift: number
-): string => {
+const decode = (text: string, alphabet: string[], shift: number): string => {
   if (!text) return "";
   const shiftAlphabet = [...alphabet.slice(shift), ...alphabet.slice(0, shift)];
   return text.replace(/[a-z]|[а-я]/gi, (letter: string): string => {
@@ -32,4 +24,4 @@ const decodeCeasar = (
   });
 };
 
-export { encodeCeasar, decodeCeasar };
+export { encode, decode };

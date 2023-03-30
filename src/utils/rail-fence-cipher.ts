@@ -1,8 +1,8 @@
-const encodeRailFenceCipher = (text: string, numberRails: number): string => {
+const encode = (text: string, numberRails: number): string => {
   if (!text) return "";
   text = text.replace(/[\s]/g, "");
-  const fence: Array<string[]> = new Array(numberRails).fill(0).map(() => []);
-  let idxHelper = new Array(numberRails).fill(0).map((_, idx) => idx);
+  const fence: Array<string[]> = new Array(+numberRails).fill(0).map(() => []);
+  let idxHelper = new Array(+numberRails).fill(0).map((_, idx) => idx);
   idxHelper = idxHelper.concat(
     idxHelper.slice(1, idxHelper.length - 1).reverse()
   );
@@ -17,11 +17,11 @@ const encodeRailFenceCipher = (text: string, numberRails: number): string => {
   return fence.map((el) => el.join("")).join("");
 };
 
-const decodeRailFenceCipher = (text: string, numberRails: number): string => {
+const decode = (text: string, numberRails: number): string => {
   if (!text) return "";
   text = text.replace(/[\s]/g, "");
   const result: string[] = [];
-  let idxHelper = new Array(numberRails).fill(0).map((_, idx) => idx);
+  let idxHelper = new Array(+numberRails).fill(0).map((_, idx) => idx);
   idxHelper = idxHelper.concat(
     idxHelper.slice(1, idxHelper.length - 1).reverse()
   );
@@ -37,4 +37,4 @@ const decodeRailFenceCipher = (text: string, numberRails: number): string => {
   return result.join("");
 };
 
-export { encodeRailFenceCipher, decodeRailFenceCipher };
+export { encode, decode };
